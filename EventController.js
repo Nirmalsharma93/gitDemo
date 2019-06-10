@@ -1,8 +1,10 @@
 'use strict';
 var app = angular.module('eventsApp');
 app.controller('EventController', function($scope) {
+        $scope.snippet='<span style="color:red">Hi There</span>';
+        $scope.boolValue=false;
         $scope.event={
-                    name:'Anuglar boot camp',
+                    name:'Anuglar Boot camp',
                     date:'10/06/2019',
                     time:'11:25am',
                     location:{

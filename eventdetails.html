@@ -7,13 +7,14 @@
     <link rel="stylesheet" href="css/app.css">
     <link rel="stylesheet" href="lib/jquery-ui-1.11.4.custom/jquery-ui.css">
     <script src="lib/angular/angular.js"></script>
+    <script src="lib/angular/angular-sanitize.js"></script>
     <script src="lib/jquery.min.js"></script>
     <script src="lib/bootstrap.min.js"></script>
     <script src="js/app.js"></script>
     <script src="js/controllers/EventController.js"></script>
 </head>
-
-<body>
+<!-- ng-cloak is used to hide angular element till page is fully loaded on slower network/avoid flash of unbound html/ need to make rule in css to make it work -->
+<body ng-cloak>
 
     <div class="container">
         <div class="navbar">
@@ -26,9 +27,19 @@
             <img ng-src="{{event.imageUrl}}" alt="{{event.name}}" />
             <div class="row">
                 <div class="spann11">
-                    <h2>{{event.name}}</h2>
+                        <h2>{{event.name}}</h2>
+                        <!-- ways to define different directive  -->
+                        <!-- <h2 ng-bind="event.name"></h2> --> 
+                    <!-- <h2 ng-bind-template="{{event.name}} {{event.date}}"></h2> with template we can have multiple items-->
                 </div>
             </div>
+            <!-- to use ng-bind-html we need to include angular-sanitize.js and dependency in app.js -->
+            <!-- <div ng-bind-html-unsafe="snippet">some title</div> deprecated -->
+            <div ng-bind-html="snippet">some title</div>
+
+            <!-- for dom manipulation like show/hide use below directive. Never make changes in controller -->
+            <h2 ng-show="boolValue">Show this</h2>
+            <h2 ng-hide="boolValue">hide this</h2>
             <div class="row">
                 <div class="span3">
                     <div><strong>{{event.date}}</strong></div>
