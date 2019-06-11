@@ -3,6 +3,8 @@ var app = angular.module('eventsApp');
 app.controller('EventController', function($scope) {
         $scope.snippet='<span style="color:red">Hi There</span>';
         $scope.boolValue=false;
+        // - helps in doing desc order. its being used with eventDetails.html's filter 
+        $scope.sortOrder='name';
         $scope.event={
                     name:'Anuglar Boot camp',
                     date:'10/06/2019',
@@ -15,21 +17,24 @@ app.controller('EventController', function($scope) {
                 imageUrl:'img/angularjs-logo.png',
                  sessions:[
                 {
-                    name:'Directive class',
+                    name:'Directive class ',
                     creatorName:'Ankit',
                     level:'Novice',
+                    duration:1,
                     upVoteCount:0
                 },
                 {
-                    name: 'PluralSight class',
+                    name: 'PluralSight class Novice',
                     creatorName:'Pukhraj',
                     level:'Pro',
+                    duration:2,
                     upVoteCount:0
                 },
                 {
                     name: 'Atos syntel class',
                     creatorName:'Sagar',
                     level:'Intermediate',
+                    duration:4,
                     upVoteCount:0
                 }
             ]
